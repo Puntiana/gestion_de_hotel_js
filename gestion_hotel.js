@@ -63,7 +63,7 @@ async function registrar() {
       console.log("Habitacion " + numero +" registrada correctamente.");
     }
 
-function mostrar() {
+function listar() {
     console.log("************** Registro de habitaciones **************");
     habitaciones.forEach((habitacion) => {
         console.log(
