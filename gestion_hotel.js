@@ -42,11 +42,11 @@ async function menu() {
 }
 
 async function registrar() {
-  let numero = prompt("Número de habitación:");
+  let numero = parseInt(prompt("Número de habitación:"));
   let tipo = prompt("Tipo de habitación (sencilla, doble, suite):");
-  let precioNoche = prompt("Precio por noche:");
+  let precioNoche = parseFloat(prompt("Precio por noche:"));
   let estado = prompt("Estado de la habitación (ocupada, libre, limpieza):");
-  let huesped = prompt("numero del huésped:");
+  let huesped = prompt("Nombre del huésped:");
 
   let habitacion = {
     numero: numero,
@@ -77,7 +77,7 @@ function listar() {
 async function buscar() {
   let numero = prompt("Número de la habitación a buscar:");
 
-  console.log("Buscando en base de datos...");
+  console.log("Consultando base de datos del Hotel Santa Ana ......");
 
   await tiempoDeEspera(3000);
 
@@ -96,15 +96,17 @@ async function buscar() {
 }
 
 async function actualizar() {
-  let numero = prompt("Ingresa el número de la habitación a actualizar:");
+  let numero = parseInt(prompt("Ingresa el número de la habitación a actualizar:"));
   console.log("Buscando en base de datos...");
 
   await tiempoDeEspera(3000);
 
   let habitacionBuscada = habitaciones.find((habitacion) => {
-    return habitacion.numero() === numero();
+    return habitacion.numero === numero;
   });
+
   if (habitacionBuscada) {
+    console.log("************* Habitación encontrada *************");
     let nuevoEstado = prompt("Ingrese el nuevo estado:");
     habitacionBuscada.estado = nuevoEstado;
     console.log("Estado actualizado: " + habitacionBuscada.numero);
@@ -117,7 +119,7 @@ function eliminar() {
   let numero = prompt("Número de la habitación que deseas eliminar:");
 
   let indice = habitaciones.findIndex((habitacion) => {
-    return habitacion.numero.toLowerCase() === numero.toLowerCase();
+    return habitacion.numero() === numero();
   });
 
   if (indice !== -1) {
