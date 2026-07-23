@@ -1,5 +1,9 @@
 let habitaciones = []
 
+function tiempoDeEspera(ms) {
+    return new Promise((resolve, reject) => setTimeout(resolve, ms));
+  }
+
 async function menu() {
     let opcion = prompt(
       "************** Hotel Santa Ana **************\n" +
@@ -45,17 +49,45 @@ async function registrar() {
     let huesped = prompt("Nombre del huesped:");
 
     let habitacion = {
-        Numero: "",
-        Tipo: ["sencilla", "doble", "suite"],
+        numeroumero: "",
+        tipo: ["sencilla", "doble", "suite"],
         precioNoche : "",
         estado: ["libre", "ocupada", "limpieza"],
-        Huesped: "",
+        huesped: "",
     };
       console.log("Validando información de la habitación...");
 
       await tiempoDeEspera(2000);
     
       habitaciones.push(habitacion);
-      console.log("Habitacion " + numero +" registrada correctamente ");
+      console.log("Habitacion " + numero +" registrada correctamente.");
     }
+
+function mostrar() {
+    console.log("************** Registro de habitaciones **************");
+    habitaciones.forEach((habitacion) => {
+        console.log(
+            `Número: ${habitacion.numero()} | Tipo: ${habitacion.tipo} | Precio por noche: ${habitacion.precioNoche} | Estado: ${habitacion.estado} | Huesped: ${habitacion.huesped}`,
+          );
+        });
+    }
+
+async function buscar() {
+    let nombre = prompt("Número de la habitación a buscar:");
+    console.log("Buscando en base de datos...");
+  
+    await tiempoDeEspera(3000);
+  
+    let habitacionBuscada = habitaciones.find((habitacion) => {
+      return habitacion.numero;
+    });
+    if (habitacionBuscada) {
+      console.log("************* Habitacion encontrada *************");
+      console.log(
+        `Número: ${habitacion.numero()} | Tipo: ${habitacion.tipo} | Precio por noche: ${habitacion.precioNoche} | Estado: ${habitacion.estado} | Huesped: ${habitacion.huesped}`,
+      );
+    } else {
+      console.log("Habitación no encontrada...");
+    }
+  }
 
