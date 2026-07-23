@@ -1,8 +1,9 @@
+
 let habitaciones = []
 
 function tiempoDeEspera(ms) {
     return new Promise((resolve, reject) => setTimeout(resolve, ms));
-  }
+  };
 
 async function menu() {
     let opcion = prompt(
@@ -49,7 +50,7 @@ async function registrar() {
     let huesped = prompt("Nombre del huesped:");
 
     let habitacion = {
-        numeroumero: "",
+        numero: "",
         tipo: ["sencilla", "doble", "suite"],
         precioNoche : "",
         estado: ["libre", "ocupada", "limpieza"],
