@@ -107,7 +107,14 @@ async function actualizar() {
 
   if (habitacionBuscada) {
     console.log("************* Habitación encontrada *************");
-    let nuevoEstado = prompt("Ingrese el nuevo estado:");
+    let nuevoEstado = (prompt("Ingrese el nuevo estado:"));
+
+    if (nuevoEstado.toLowerCase != "ocupado"){
+      habitacionBuscada.huesped = "";
+    } else { nuevoEstado.toLowerCase === "ocupado"
+      habitacionBuscada.huesped = prompt("Ingrese el nombre del huesped");
+    }
+    
     habitacionBuscada.estado = nuevoEstado;
     console.log("Estado actualizado: " + habitacionBuscada.numero);
   } else {
@@ -124,7 +131,7 @@ function eliminar() {
 
   if (indice !== -1) {
     habitaciones.splice(indice, 1);
-    console.log("Habitacion eliminada: " + numero);
+    console.log("Habitacion " +numero + " eliminada.");
   } else {
     console.log("Habitacion no encontrada...");
   }
