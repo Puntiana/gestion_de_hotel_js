@@ -2,14 +2,14 @@ let habitaciones = [];
 
 function tiempoDeEspera(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
+};
 
 async function menu() {
   let opcion = prompt(
     "************** Hotel Santa Ana **************\n" +
       "1. Registrar una nueva habitación\n" +
       "2. Listar Habitaciones\n" +
-      "3. Buscar habitación por número\n" +
+      "3. Buscar habitación por nGIT úmero\n" +
       "4. Cambiar estado de habitación\n" +
       "5. Eliminar habitación\n" +
       "6. Salir"
